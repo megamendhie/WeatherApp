@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mendhie.weatherapp.data.models.DailyForecast
 import com.mendhie.weatherapp.databinding.ItemWeatherBinding
 import com.mendhie.weatherapp.domain.mappers.WeatherDataMapper
@@ -32,7 +33,10 @@ class WeatherAdapter(): RecyclerView.Adapter<WeatherAdapter.WeatherItemViewHolde
         fun bindView(dailyForecast: DailyForecast){
             binding.txtDesc.text = dailyForecast.weather[0].description
             binding.txtDate.text = WeatherDataMapper().getDay(dailyForecast.date)
-            binding.txtTemp.text = "${dailyForecast.temp.max}/${dailyForecast.temp.min}"
+            binding.txtTemp.text = "${dailyForecast.temp.max}°/${dailyForecast.temp.min}°"
+            Glide.with(binding.root.context)
+                .load("https://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}@2x.png")
+                .into(binding.imgIcon)
         }
     }
 }

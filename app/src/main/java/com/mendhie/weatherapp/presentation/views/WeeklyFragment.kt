@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.mendhie.weatherapp.data.models.DailyForecast
 import com.mendhie.weatherapp.data.models.DisplayWeather
 import com.mendhie.weatherapp.databinding.FragmentWeeklyBinding
@@ -66,6 +67,9 @@ class WeeklyFragment : Fragment() {
         binding.txtDesc.text = displayWeather.description
         binding.txtTemp.text = "${displayWeather.temp}"
         binding.txtDegree.visibility = View.VISIBLE
+        Glide.with(requireContext())
+            .load("https://openweathermap.org/img/wn/${displayWeather.icon}@2x.png")
+            .into(binding.imgIcon)
     }
 
     override fun onDestroyView() {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.mendhie.weatherapp.data.models.DisplayWeather
 import com.mendhie.weatherapp.databinding.FragmentTodayBinding
 import com.mendhie.weatherapp.domain.mappers.WeatherDataMapper
@@ -60,6 +61,9 @@ class TodayFragment : Fragment() {
         binding.txtWind.text = String.format("%.2fkm/h", displayWeather.wind)
         binding.txtHumidity.text = "${displayWeather.humidity}%"
         binding.txtUV.text = "${displayWeather.uvi}"
+        Glide.with(requireContext())
+            .load("https://openweathermap.org/img/wn/${displayWeather.icon}@2x.png")
+            .into(binding.imgIcon)
     }
 
     override fun onDestroyView() {
