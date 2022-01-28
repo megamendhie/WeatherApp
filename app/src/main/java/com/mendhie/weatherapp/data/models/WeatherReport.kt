@@ -2,6 +2,7 @@ package com.mendhie.weatherapp.data.models
 
 import androidx.room.*
 import com.google.gson.annotations.SerializedName
+import com.mendhie.weatherapp.data.converters.WeatherConverter
 
 @Entity(tableName = "weather_table")
 @TypeConverters(WeatherConverter::class)

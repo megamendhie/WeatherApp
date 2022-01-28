@@ -34,7 +34,8 @@ class Repository @Inject constructor(val dao: WeatherDao, val scope: CoroutineSc
                 call: Call<WeatherForecast>,
                 response: Response<WeatherForecast>
             ) {
-                scope.launch { saveToDatabase(response.body()!!) }
+                if(response.body()!= null)
+                    scope.launch { saveToDatabase(response.body()!!) }
                 Log.d(TAG, "onResponse: ${response.body()}")
             }
 

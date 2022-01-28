@@ -6,12 +6,12 @@
     app:startDestination="@id/navToday">
     <fragment
         android:id="@+id/navToday"
-        android:name="com.mendhie.weatherapp.presentation.TodayFragment"
+        android:name="com.mendhie.weatherapp.presentation.views.TodayFragment"
         android:label="fragment_today"
         tools:layout="@layout/fragment_today" />
     <fragment
         android:id="@+id/navWeekly"
-        android:name="com.mendhie.weatherapp.presentation.WeeklyFragment"
+        android:name="com.mendhie.weatherapp.presentation.views.WeeklyFragment"
         android:label="fragment_weekly"
         tools:layout="@layout/fragment_weekly" />
 </navigation>
