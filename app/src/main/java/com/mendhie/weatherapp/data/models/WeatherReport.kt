@@ -1,19 +1,19 @@
 package com.mendhie.weatherapp.data.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.google.gson.annotations.SerializedName
 
-//@Entity(tableName = "weather")
+@Entity(tableName = "weather_table")
+@TypeConverters(WeatherConverter::class)
 data class WeatherForecast(
-    //@PrimaryKey
-    //val id: Int = 0,
+    @PrimaryKey
+    val id: Int = 0,
     val lat: Double,
     val lon: Double,
     val timezone: String,
     @SerializedName("timezone_offset") val offset: Int,
-    val current: CurrentWeather,
-    val daily: List<DailyForecast>?
+    @Embedded val current: CurrentWeather,
+    val daily: List<DailyForecast>
 )
 
 data class DailyForecast(
