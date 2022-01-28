@@ -14,7 +14,6 @@
         android:id="@+id/imgIcon"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        android:src="@drawable/ic_date_range_24"
         android:contentDescription="@string/weather_icon"/>
 
     <TextView
@@ -23,25 +22,22 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
         android:layout_marginStart="15dp"
-        android:text="Sat"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/txtTemp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="3.5"
         android:layout_marginStart="10dp"
-        android:text="43/84"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
     <TextView
         android:id="@+id/txtDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="6.5"
+        android:layout_weight="5"
         android:layout_marginStart="15dp"
-        android:text="Mostly Cloudy with a thunderstorm"
-        android:textSize="16sp"/>
+        android:textSize="15sp"/>
 
 </LinearLayout>

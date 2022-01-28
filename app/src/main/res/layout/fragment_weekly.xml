@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.WeeklyFragment">
+    tools:context=".presentation.views.WeeklyFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +12,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#333C4E">
+            android:background="#333D51">
 
             <TextView
                 android:id="@+id/txtCity"
@@ -20,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:layout_marginStart="20dp"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +30,7 @@
                 android:id="@+id/txtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintTop_toBottomOf="@id/txtCity"
@@ -38,6 +40,7 @@
                 android:id="@+id/txtDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:layout_marginTop="14dp"
@@ -50,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="36dp"
+                android:textColor="@android:color/white"
                 android:textSize="50sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintStart_toStartOf="@id/txtDesc"
@@ -60,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
+                android:textColor="@android:color/white"
                 android:text="\u2103"
                 android:textSize="24sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -67,11 +72,12 @@
                 app:layout_constraintStart_toEndOf="@id/txtTemp"/>
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:id="@+id/imgIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="50dp"
-                android:src="@drawable/ic_today_24"
-                app:layout_constraintTop_toTopOf="@id/txtCity"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView

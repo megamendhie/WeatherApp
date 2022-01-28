@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/weather_app_bg"
-    tools:context=".presentation.TodayFragment">
+    tools:context=".presentation.views.TodayFragment">
 
     <TextView
         android:id="@+id/txtCity"
@@ -60,18 +60,20 @@
         app:layout_constraintStart_toEndOf="@id/txtTemp"/>
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/imgIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="50dp"
-        android:src="@drawable/ic_today_24"
-        app:layout_constraintTop_toTopOf="@id/txtCity"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="40dp"
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent">
 
