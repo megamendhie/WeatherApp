@@ -1,4 +1,4 @@
-package com.mendhie.weatherapp.presentation
+package com.mendhie.weatherapp.presentation.views
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar

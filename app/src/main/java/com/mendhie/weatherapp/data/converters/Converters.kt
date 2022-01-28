@@ -1,8 +1,10 @@
-package com.mendhie.weatherapp.data.models
+package com.mendhie.weatherapp.data.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.mendhie.weatherapp.data.models.DailyForecast
+import com.mendhie.weatherapp.data.models.Weather
 
 class WeatherConverter{
     companion object{

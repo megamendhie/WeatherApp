@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.mendhie.weatherapp.data.models.WeatherConverter
+import com.mendhie.weatherapp.data.converters.WeatherConverter
 import com.mendhie.weatherapp.data.models.WeatherForecast
 import javax.inject.Inject
 
