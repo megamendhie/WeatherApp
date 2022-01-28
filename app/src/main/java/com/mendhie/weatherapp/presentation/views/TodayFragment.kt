@@ -6,19 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.mendhie.weatherapp.data.models.DisplayWeather
 import com.mendhie.weatherapp.databinding.FragmentTodayBinding
 import com.mendhie.weatherapp.domain.mappers.WeatherDataMapper
 import com.mendhie.weatherapp.domain.viewmodels.WeatherViewmodel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+
+@AndroidEntryPoint
 class TodayFragment : Fragment() {
 
     private var _binding: FragmentTodayBinding? = null
-    private lateinit var viewModel: WeatherViewmodel
+    private val viewModel: WeatherViewmodel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,8 +36,9 @@ class TodayFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProvider(requireActivity()).get(WeatherViewmodel::class.java)
         viewModel.weatherForecast.observe(viewLifecycleOwner, { weatherForecast ->
+            if(weatherForecast==null)
+                return@observe
             val displayWeather = WeatherDataMapper().convertToDisplayWeather(
                 weatherForecast.timezone,
                 weatherForecast.current

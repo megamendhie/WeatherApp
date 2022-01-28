@@ -13,7 +13,9 @@ import androidx.navigation.ui.NavigationUI
 import com.mendhie.weatherapp.R
 import com.mendhie.weatherapp.databinding.ActivityMainBinding
 import com.mendhie.weatherapp.databinding.AppbarBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

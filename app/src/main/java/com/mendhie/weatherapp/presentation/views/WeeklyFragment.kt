@@ -14,14 +14,17 @@ import com.mendhie.weatherapp.databinding.FragmentWeeklyBinding
 import com.mendhie.weatherapp.domain.mappers.WeatherDataMapper
 import com.mendhie.weatherapp.domain.viewmodels.WeatherViewmodel
 import com.mendhie.weatherapp.presentation.adapters.WeatherAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+
+@AndroidEntryPoint
 class WeeklyFragment : Fragment() {
 
     private var _binding: FragmentWeeklyBinding? = null
-    private lateinit var viewModel: WeatherViewmodel
+    private val viewModel: WeatherViewmodel by viewModels()
     private lateinit var adapter: WeatherAdapter
 
     // This property is only valid between onCreateView and
@@ -41,7 +44,6 @@ class WeeklyFragment : Fragment() {
         binding.lstDailyForecast.layoutManager = LinearLayoutManager(requireContext())
         adapter = WeatherAdapter()
         binding.lstDailyForecast.adapter = adapter
-        viewModel = ViewModelProvider(requireActivity()).get(WeatherViewmodel::class.java)
         viewModel.weatherForecast.observe(viewLifecycleOwner, { weatherForecast ->
             val displayWeather = WeatherDataMapper().convertToDisplayWeather(
                 weatherForecast.timezone,
@@ -49,9 +51,9 @@ class WeeklyFragment : Fragment() {
             )
 
             updateViews(displayWeather)
-            val list = weatherForecast.daily?.toMutableList()
-            list?.removeAt(0)
-            updateList(list!!)
+            val list = weatherForecast.daily.toMutableList()
+            list.removeAt(0)
+            updateList(list)
         })
     }
 
